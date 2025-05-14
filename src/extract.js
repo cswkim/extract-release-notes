@@ -16,7 +16,7 @@ export async function extractReleaseNotes(changelogFile, prerelease) {
   let inside_release = false
   for await (const line of rl) {
     const start_of_release =
-      !!line.match(/^#+ (\[)?[vV]?[0-9]+\.[0-9]+(\.[0-9]+)?(\])?/) || 
+      !!line.match(/^#+ (\[)?[vV]?[0-9]+\.[0-9]+(\.[0-9]+)?(\])?/) ||
       (prerelease === 'true' && !!line.match(/^#+ (\[)?Unreleased(\])?/))
     if (inside_release) {
       if (start_of_release) {
